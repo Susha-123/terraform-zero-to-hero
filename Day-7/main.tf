@@ -10,19 +10,19 @@ provider "vault" {
     path = "auth/approle/login"
 
     parameters = {
-      role_id = "<>"
-      secret_id = "<>"
+      role_id = "46684d7e-8c7a-f2dd-4b88-1e9f4eac53eb"
+      secret_id = "8e1caaf3-dd27-5433-562f-b8e71cbc5089"
     }
   }
 }
 
 data "vault_kv_secret_v2" "example" {
-  mount = "secret" // change it according to your mount
+  mount = "kv" // change it according to your mount
   name  = "test-secret" // change it according to your secret
 }
 
 resource "aws_instance" "my_instance" {
-  ami           = "ami-053b0d53c279acc90"
+  ami           = "ami-080e1f13689e07408"
   instance_type = "t2.micro"
 
   tags = {
